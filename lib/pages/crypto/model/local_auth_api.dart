@@ -1,3 +1,5 @@
+// ignore_for_file: unused_catch_clause
+
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
 
@@ -7,6 +9,7 @@ class LocalAuthApi {
   static Future<bool> hasBiometrics() async {
     try {
       return await _auth.canCheckBiometrics;
+    // ignore: unused_catch_clause
     } on PlatformException catch (e) {
       return false;
     }
@@ -15,6 +18,7 @@ class LocalAuthApi {
   static Future<List<BiometricType>> getBiometrics() async {
     try {
       return await _auth.getAvailableBiometrics();
+    // ignore: unused_catch_clause
     } on PlatformException catch (e) {
       return <BiometricType>[];
     }

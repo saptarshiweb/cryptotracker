@@ -6,11 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:convert';
 import 'dart:async';
 
-import 'package:intl/intl.dart';
 import 'dart:math';
-
 import 'package:syncfusion_flutter_charts/charts.dart';
-
 import 'model/chartdata.dart';
 
 class Marketscreen extends StatefulWidget {

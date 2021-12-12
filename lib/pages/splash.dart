@@ -135,7 +135,7 @@ class _SplashState extends State<Splash> {
                 return welcome();
               }
 
-              if (isclear != true) {
+              if (isclear == true) {
                 return callyou();
               } else {
                 if (email == true) {
@@ -403,7 +403,7 @@ class _SplashState extends State<Splash> {
                     gradient: LinearGradient(
                       colors: [
                         Colors.purple.shade900,
-                        Colors.black,
+                        Colors.deepPurple.shade900,
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
@@ -471,11 +471,11 @@ class _SplashState extends State<Splash> {
                               primary: Colors.black,
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(12.0),
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    write('Sign In ', 30, Colors.white, true),
+                                    write('Sign In ', 16, Colors.white, true),
                                     FaIcon(
                                       FontAwesomeIcons.signInAlt,
                                       color: Colors.white,
@@ -499,11 +499,11 @@ class _SplashState extends State<Splash> {
                               primary: Colors.white,
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(12.0),
                               child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    write('Sign Up ', 25, Colors.black, true),
+                                    write('Sign Up ', 16, Colors.black, true),
                                     FaIcon(
                                       FontAwesomeIcons.userAlt,
                                       color: Colors.black,
@@ -788,34 +788,33 @@ class _SplashState extends State<Splash> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(14.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.grey.shade200,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        )),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Username ',
-                              hintStyle: TextStyle(
-                                color: Colors.grey.shade900,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 13,
-                                fontFamily: 'lato',
-                              ),
-                            ),
-                            style: TextStyle(
-                              color: Colors.black,
+                      child: Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Username ',
+                            hintStyle: TextStyle(
+                              color: Colors.grey.shade900,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                              fontSize: 13,
                               fontFamily: 'lato',
                             ),
-                            maxLines: 1,
                           ),
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            fontFamily: 'lato',
+                          ),
+                          maxLines: 1,
                         ),
                       ),
                     ),
@@ -823,34 +822,33 @@ class _SplashState extends State<Splash> {
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(14, 0, 14, 2),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.grey.shade200,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        )),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Password ',
-                              hintStyle: TextStyle(
-                                color: Colors.grey.shade900,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 13,
-                                fontFamily: 'lato',
-                              ),
-                            ),
-                            style: TextStyle(
-                              color: Colors.black,
+                      child: Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            hintText: 'Password ',
+                            hintStyle: TextStyle(
+                              color: Colors.grey.shade900,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20,
+                              fontSize: 13,
                               fontFamily: 'lato',
                             ),
-                            maxLines: 1,
                           ),
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            fontFamily: 'lato',
+                          ),
+                          maxLines: 1,
                         ),
                       ),
                     ),
@@ -891,74 +889,80 @@ class _SplashState extends State<Splash> {
                   ],
                 ),
                 SizedBox(height: 26),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.grey.shade200,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            email2 = true;
-                          });
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(14.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              FaIcon(
-                                FontAwesomeIcons.google,
-                                color: Colors.deepOrange.shade900,
-                                size: 25,
-                              ),
-                              write('  Continue with Google OTP            ',
-                                  18, Colors.black, true),
-                              FaIcon(
-                                FontAwesomeIcons.arrowRight,
-                                size: 18,
-                                color: Colors.blueGrey.shade900,
-                              )
-                            ],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 1, 8, 2),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.grey.shade200,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
                           ),
-                        )),
-                  ],
+                          onPressed: () {
+                            setState(() {
+                              email2 = true;
+                            });
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(14.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                FaIcon(
+                                  FontAwesomeIcons.google,
+                                  color: Colors.deepOrange.shade900,
+                                  size: 25,
+                                ),
+                                write('  Continue with Google OTP   ', 18,
+                                    Colors.black, true),
+                                FaIcon(
+                                  FontAwesomeIcons.arrowRight,
+                                  size: 18,
+                                  color: Colors.blueGrey.shade900,
+                                )
+                              ],
+                            ),
+                          )),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.grey.shade200,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
-                        ),
-                        onPressed: () {},
-                        child: Padding(
-                          padding: const EdgeInsets.all(14.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              FaIcon(
-                                FontAwesomeIcons.facebook,
-                                color: Colors.teal.shade700,
-                                size: 25,
-                              ),
-                              write('  Continue with Facebook                ',
-                                  18, Colors.black, true),
-                              FaIcon(
-                                FontAwesomeIcons.arrowRight,
-                                size: 18,
-                                color: Colors.blueGrey.shade900,
-                              )
-                            ],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 0, 8, 1),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.grey.shade200,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
                           ),
-                        )),
-                  ],
+                          onPressed: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.all(14.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                FaIcon(
+                                  FontAwesomeIcons.facebook,
+                                  color: Colors.teal.shade700,
+                                  size: 25,
+                                ),
+                                write('  Continue with Facebook       ', 18,
+                                    Colors.black, true),
+                                FaIcon(
+                                  FontAwesomeIcons.arrowRight,
+                                  size: 18,
+                                  color: Colors.blueGrey.shade900,
+                                )
+                              ],
+                            ),
+                          )),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 10,
@@ -1083,360 +1087,6 @@ class _SplashState extends State<Splash> {
                             ],
                           ),
                         ),
-                        //       Padding(
-                        //         padding: const EdgeInsets.fromLTRB(22, 0, 22, 0),
-                        //         child: ElevatedButton(
-                        //           style: ElevatedButton.styleFrom(
-                        //             primary: Colors.blueGrey.shade900,
-                        //           ),
-                        //           onPressed: () {
-                        //             setState(() {
-                        //               email2 = true;
-                        //             });
-                        //           },
-                        //           child: Padding(
-                        //             padding: const EdgeInsets.all(12.0),
-                        //             child: Row(
-                        //               mainAxisAlignment: MainAxisAlignment.center,
-                        //               children: [
-                        //                 write('Sign Up With Email Id   ', 24, Colors.white, true),
-                        //                 FaIcon(
-                        //                   FontAwesomeIcons.signInAlt,
-                        //                   color: Colors.white,
-                        //                   size: 24,
-                        //                 )
-                        //               ],
-                        //             ),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //       SizedBox(
-                        //         height: 9,
-                        //       ),
-                        //       Padding(
-                        //         padding: const EdgeInsets.fromLTRB(22, 0, 22, 0),
-                        //         child: ElevatedButton(
-                        //           style: ElevatedButton.styleFrom(
-                        //             primary: Colors.grey.shade200,
-                        //           ),
-                        //           onPressed: () {},
-                        //           child: Padding(
-                        //             padding: const EdgeInsets.all(12.0),
-                        //             child: Row(
-                        //               mainAxisAlignment: MainAxisAlignment.center,
-                        //               children: [
-                        //                 FaIcon(
-                        //                   FontAwesomeIcons.google,
-                        //                   color: Colors.black,
-                        //                   size: 24,
-                        //                 ),
-                        //                 write('  Sign Up with Google', 24, Colors.black, true),
-                        //               ],
-                        //             ),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //       SizedBox(
-                        //         height: 12,
-                        //       ),
-                        //       Row(
-                        //         mainAxisAlignment: MainAxisAlignment.center,
-                        //         children: [
-                        //           write('Already have an account ? ', 21, Colors.blueGrey.shade900,
-                        //               true),
-                        //           Text(
-                        //             "Sign In",
-                        //             style: TextStyle(
-                        //               fontFamily: 'lato',
-                        //               fontWeight: FontWeight.bold,
-                        //               color: Colors.black,
-                        //               decoration: TextDecoration.underline,
-                        //               decorationColor: Colors.black,
-                        //               fontSize: 20,
-                        //             ),
-                        //           )
-                        //         ],
-                        //       ),
-                        //       email2 == false
-                        //           ? SizedBox(
-                        //               height: 0,
-                        //               width: 0,
-                        //             )
-                        //           : Center(
-                        //               child: Padding(
-                        //                 padding: const EdgeInsets.all(20.0),
-                        //                 child: ElevatedButton(
-                        //                   onPressed: () {},
-                        //                   style: ElevatedButton.styleFrom(
-                        //                     primary: Colors.white,
-                        //                     onPrimary: Colors.white,
-                        //                   ),
-                        //                   child: Column(
-                        //                     children: [
-                        //                       SizedBox(
-                        //                         height: 10,
-                        //                       ),
-                        //                       Row(children: [
-                        //                         SizedBox(
-                        //                           width: 20,
-                        //                         ),
-                        //                         write('Complete the Process', 22,
-                        //                             Colors.blueGrey.shade900, true),
-                        //                         Spacer(),
-                        //                         IconButton(
-                        //                             onPressed: () {
-                        //                               setState(() {
-                        //                                 email2 = false;
-                        //                               });
-                        //                             },
-                        //                             icon: Icon(
-                        //                               Icons.cancel,
-                        //                               color: Colors.blueGrey.shade900,
-                        //                               size: 28,
-                        //                             )),
-                        //                         SizedBox(
-                        //                           width: 10,
-                        //                         )
-                        //                       ]),
-                        //                       SizedBox(
-                        //                         height: 8,
-                        //                       ),
-                        //                       Row(
-                        //                         mainAxisAlignment: MainAxisAlignment.center,
-                        //                         children: [
-                        //                           write('Email OTP Verification     ', 22,
-                        //                               Colors.black, true),
-                        //                           SizedBox(
-                        //                             width: 5,
-                        //                           ),
-                        //                           FaIcon(
-                        //                             FontAwesomeIcons.userLock,
-                        //                             color: Colors.black,
-                        //                             size: 26,
-                        //                           ),
-                        //                         ],
-                        //                       ),
-                        //                       Padding(
-                        //                         padding: const EdgeInsets.all(14.0),
-                        //                         child: Row(
-                        //                           mainAxisAlignment: MainAxisAlignment.center,
-                        //                           children: [
-                        //                             Expanded(
-                        //                               child: TextField(
-                        //                                 controller: _emailcontroller,
-                        //                                 decoration: InputDecoration(
-                        //                                   hintText: 'Enter Your Email ',
-                        //                                   hintStyle: TextStyle(
-                        //                                     color: Colors.grey.shade800,
-                        //                                     fontWeight: FontWeight.bold,
-                        //                                     fontSize: 19,
-                        //                                     fontFamily: 'lato',
-                        //                                   ),
-                        //                                 ),
-                        //                                 style: TextStyle(
-                        //                                   color: Colors.black,
-                        //                                   fontWeight: FontWeight.bold,
-                        //                                   fontSize: 20,
-                        //                                   fontFamily: 'lato',
-                        //                                 ),
-                        //                                 maxLines: 1,
-                        //                               ),
-                        //                             ),
-                        //                           ],
-                        //                         ),
-                        //                       ),
-                        //                       SizedBox(
-                        //                         height: 6,
-                        //                       ),
-                        //                       ElevatedButton(
-                        //                         onPressed: () {
-                        //                           // sendOtp();
-
-                        //                           setState(() {
-                        //                             otpenter = true;
-                        //                           });
-                        //                         },
-                        //                         child: Padding(
-                        //                           padding: const EdgeInsets.all(8.0),
-                        //                           child: Row(
-                        //                             mainAxisAlignment: MainAxisAlignment.center,
-                        //                             children: [
-                        //                               write('Send OTP ', 23, Colors.white, true),
-                        //                               Icon(
-                        //                                 Icons.send_outlined,
-                        //                                 color: Colors.white,
-                        //                                 size: 24,
-                        //                               )
-                        //                             ],
-                        //                           ),
-                        //                         ),
-                        //                         style: ElevatedButton.styleFrom(
-                        //                           primary: Colors.blueGrey.shade900,
-                        //                           onPrimary: Colors.lightGreenAccent.shade700,
-                        //                         ),
-                        //                       ),
-                        //                       SizedBox(
-                        //                         height: 15,
-                        //                       ),
-                        //                     ],
-                        //                   ),
-                        //                 ),
-                        //               ),
-                        //             ),
-                        //       otpenter == true
-                        //           ? Center(
-                        //               child: Padding(
-                        //                 padding: const EdgeInsets.all(20.0),
-                        //                 child: ElevatedButton(
-                        //                   onPressed: () {},
-                        //                   style: ElevatedButton.styleFrom(
-                        //                     primary: Colors.white,
-                        //                   ),
-                        //                   child: Column(
-                        //                     children: [
-                        //                       Row(
-                        //                           mainAxisAlignment: MainAxisAlignment.start,
-                        //                           children: [
-                        //                             IconButton(
-                        //                                 onPressed: () {
-                        //                                   setState(() {
-                        //                                     otpenter = false;
-                        //                                   });
-                        //                                 },
-                        //                                 icon: Icon(
-                        //                                   Icons.cancel,
-                        //                                   color: Colors.blueGrey.shade900,
-                        //                                   size: 28,
-                        //                                 )),
-                        //                             SizedBox(
-                        //                               width: 10,
-                        //                             )
-                        //                           ]),
-                        //                       Row(
-                        //                         mainAxisAlignment: MainAxisAlignment.center,
-                        //                         children: [
-                        //                           write('OTP Verification   ', 25, Colors.black,
-                        //                               true),
-                        //                           Icon(
-                        //                             Icons.verified_sharp,
-                        //                             color: Colors.black,
-                        //                             size: 30,
-                        //                           ),
-                        //                         ],
-                        //                       ),
-                        //                       SizedBox(
-                        //                         height: 10,
-                        //                       ),
-                        //                       Row(
-                        //                         mainAxisAlignment: MainAxisAlignment.center,
-                        //                         children: [
-                        //                           write('Check your email Id. We have sent ', 17,
-                        //                               Colors.blueGrey.shade700, true),
-                        //                         ],
-                        //                       ),
-                        //                       Row(
-                        //                         mainAxisAlignment: MainAxisAlignment.center,
-                        //                         children: [
-                        //                           write('you the OTP at ' + _emailcontroller.text,
-                        //                               17, Colors.blueGrey.shade700, true),
-                        //                         ],
-                        //                       ),
-                        //                       SizedBox(
-                        //                         height: 15,
-                        //                       ),
-                        //                       Row(
-                        //                         mainAxisAlignment: MainAxisAlignment.center,
-                        //                         children: [
-                        //                           Expanded(
-                        //                             child: TextField(
-                        //                               controller: _otpcontroller,
-                        //                               decoration: InputDecoration(
-                        //                                 hintText: 'Enter Your OTP ',
-                        //                                 hintStyle: TextStyle(
-                        //                                   color: Colors.grey.shade800,
-                        //                                   fontWeight: FontWeight.bold,
-                        //                                   fontSize: 20,
-                        //                                   fontFamily: 'lato',
-                        //                                 ),
-                        //                               ),
-                        //                               style: TextStyle(
-                        //                                 color: Colors.black,
-                        //                                 fontWeight: FontWeight.bold,
-                        //                                 fontSize: 20,
-                        //                                 fontFamily: 'lato',
-                        //                               ),
-                        //                               maxLines: 1,
-                        //                             ),
-                        //                           ),
-                        //                         ],
-                        //                       ),
-                        //                       SizedBox(
-                        //                         height: 8,
-                        //                       ),
-                        //                       Padding(
-                        //                         padding: const EdgeInsets.fromLTRB(10, 4, 10, 4),
-                        //                         child: ElevatedButton(
-                        //                           onPressed: () {
-                        //                             if (verify() == true) {
-                        //                               setState(() {
-                        //                                 isclear = true;
-                        //                               });
-                        //                             }
-                        //                           },
-                        //                           child: Padding(
-                        //                             padding: const EdgeInsets.all(8.0),
-                        //                             child: Row(
-                        //                               mainAxisAlignment: MainAxisAlignment.center,
-                        //                               children: [
-                        //                                 write(
-                        //                                     'Verify OTP ', 22, Colors.white, true),
-                        //                                 Icon(
-                        //                                   Icons.verified_user_sharp,
-                        //                                   color: Colors.white,
-                        //                                   size: 24,
-                        //                                 )
-                        //                               ],
-                        //                             ),
-                        //                           ),
-                        //                           style: ElevatedButton.styleFrom(
-                        //                             primary: Colors.blueGrey.shade900,
-                        //                             onPrimary: Colors.green.shade900,
-                        //                           ),
-                        //                         ),
-                        //                       ),
-                        //                       SizedBox(
-                        //                         height: 8,
-                        //                       ),
-                        //                       write('Did not receive the code ?', 18,
-                        //                           Colors.blueGrey.shade700, true),
-                        //                       Text(
-                        //                         'Re-Send Code',
-                        //                         style: TextStyle(
-                        //                           color: Colors.blueGrey.shade900,
-                        //                           decoration: TextDecoration.underline,
-                        //                           decorationColor: Colors.blueGrey.shade900,
-                        //                           fontWeight: FontWeight.bold,
-                        //                           fontSize: 19,
-                        //                           fontFamily: 'lato',
-                        //                         ),
-                        //                       ),
-                        //                       SizedBox(
-                        //                         height: 10,
-                        //                       ),
-                        //                     ],
-                        //                   ),
-                        //                 ),
-                        //               ),
-                        //             )
-                        //           : SizedBox(
-                        //               height: 0,
-                        //               width: 0,
-                        //             ),
-                        //       SizedBox(
-                        //         height: 400,
-                        //       ),
-                        //     ],
-                        //   ),
                       ),
                 SizedBox(height: 10),
                 otpenter == true
@@ -1593,6 +1243,9 @@ class _SplashState extends State<Splash> {
                         ),
                       )
                     : SizedBox(height: 0, width: 0),
+                SizedBox(
+                  height: 100,
+                )
               ]))
         ]));
   }
