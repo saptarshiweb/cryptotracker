@@ -1,8 +1,7 @@
-
 import 'package:expense/pages/crypto/homescreen.dart';
 import 'package:expense/pages/crypto/market.dart';
 import 'package:expense/pages/crypto/model/local_auth_api.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:expense/pages/homepage.dart';
 import 'package:expense/pages/settings.dart';
@@ -10,8 +9,6 @@ import 'package:expense/pages/settings.dart';
 import 'package:expense/pages/widgets/add_transaction2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-
 
 class HomePagecrypto extends StatefulWidget {
   static bool dark = true;
@@ -40,9 +37,6 @@ class _HomePagecryptoState extends State<HomePagecrypto> {
   List<Widget> tabPages = [
     Homescreen(),
     HomePageSingleColor(),
-
-    
-
     Marketscreen(),
     Settings(),
   ];
@@ -73,7 +67,7 @@ class _HomePagecryptoState extends State<HomePagecrypto> {
         onTap: onTabTapped,
         selectedItemColor: dark == false
             ? Colors.deepPurple.shade900
-            : Colors.lightGreenAccent.shade400,
+            : Colors.purpleAccent.shade700,
         showSelectedLabels: true,
         showUnselectedLabels: true,
         unselectedLabelStyle: TextStyle(fontFamily: 'lato', fontSize: 12),
@@ -81,36 +75,36 @@ class _HomePagecryptoState extends State<HomePagecrypto> {
             fontFamily: 'lato',
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            color: dark == false
+            color: dark == true
                 ? Colors.deepPurple.shade800
                 : Colors.lightGreenAccent.shade400),
         unselectedItemColor: dark == false ? Colors.black : Colors.white,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
-                size: 26,
+              icon: FaIcon(
+                FontAwesomeIcons.home,
+                size: 28,
               ),
               backgroundColor: dark == false ? Colors.white : Colors.black,
               label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.account_circle,
-                size: 26,
+              icon: FaIcon(
+                FontAwesomeIcons.userShield,
+                size: 28,
               ),
               backgroundColor: dark == false ? Colors.white : Colors.black,
               label: 'PortFolio'),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.auto_graph,
-                size: 26,
+                Icons.price_change,
+                size: 30,
               ),
               backgroundColor: dark == false ? Colors.white : Colors.black,
               label: 'Market'),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.settings,
-                size: 26,
+                size: 30,
               ),
               backgroundColor: dark == false ? Colors.white : Colors.black,
               label: 'Settings'),
@@ -258,8 +252,8 @@ class _HomePagecryptoState extends State<HomePagecrypto> {
                 );
               });
         },
-        child: Icon(
-          Icons.compare_arrows_outlined,
+        child: FaIcon(
+          FontAwesomeIcons.exchangeAlt,
           size: 32,
           color: dark == false ? Colors.white : Colors.white,
         ),
@@ -267,10 +261,11 @@ class _HomePagecryptoState extends State<HomePagecrypto> {
             ? Colors.deepPurple.shade900
             : Colors.deepOrange.shade900,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       // floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
 
       body: PageView(
+        physics: AlwaysScrollableScrollPhysics(),
         children: tabPages,
         onPageChanged: onPageChanged,
         controller: _pageController,
@@ -286,7 +281,8 @@ class _HomePagecryptoState extends State<HomePagecrypto> {
 
   void onTabTapped(int index) {
     _pageController.animateToPage(index,
-        duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.linearToEaseOut);
   }
 
   Text write(String s, double size, Color c, bool j) {

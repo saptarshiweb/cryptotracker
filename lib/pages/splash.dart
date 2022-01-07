@@ -222,8 +222,8 @@ class _SplashState extends State<Splash> {
               Positioned(
                 bottom: 50,
                 child: Container(
-                  height: 280,
-                  width: 280,
+                  height: 300,
+                  width: 320,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('assets/crypto.jpg'),
@@ -238,12 +238,12 @@ class _SplashState extends State<Splash> {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              GlowText(
+              Text(
                 '    Hello $val  ',
-                glowColor: Colors.white,
+                
                 style: TextStyle(
-                  fontFamily: 'lato',
-                  fontSize: 32,
+                  fontFamily: 'ale1',
+                  fontSize: 29,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
@@ -797,25 +797,23 @@ class _SplashState extends State<Splash> {
                         )),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Username ',
-                            hintStyle: TextStyle(
-                              color: Colors.grey.shade900,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13,
-                              fontFamily: 'lato',
-                            ),
-                          ),
-                          style: TextStyle(
-                            color: Colors.black,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          hintText: 'Username ',
+                          hintStyle: TextStyle(
+                            color: Colors.grey.shade900,
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 13,
                             fontFamily: 'lato',
                           ),
-                          maxLines: 1,
                         ),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          fontFamily: 'lato',
+                        ),
+                        maxLines: 1,
                       ),
                     ),
                   ),
@@ -831,25 +829,23 @@ class _SplashState extends State<Splash> {
                         )),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Password ',
-                            hintStyle: TextStyle(
-                              color: Colors.grey.shade900,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 13,
-                              fontFamily: 'lato',
-                            ),
-                          ),
-                          style: TextStyle(
-                            color: Colors.black,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          hintText: 'Password ',
+                          hintStyle: TextStyle(
+                            color: Colors.grey.shade900,
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 13,
                             fontFamily: 'lato',
                           ),
-                          maxLines: 1,
                         ),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          fontFamily: 'lato',
+                        ),
+                        maxLines: 1,
                       ),
                     ),
                   ),
@@ -1055,7 +1051,7 @@ class _SplashState extends State<Splash> {
                               ),
                               ElevatedButton(
                                 onPressed: () {
-                                  // sendOtp();
+                                  sendOtp();
 
                                   setState(() {
                                     otpenter = true;
@@ -1139,18 +1135,21 @@ class _SplashState extends State<Splash> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     write('Check your email Id. We have sent ',
-                                        17, Colors.blueGrey.shade700, true),
+                                        14, Colors.blueGrey.shade700, true),
                                   ],
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    write(
-                                        'you the OTP at ' +
-                                            _emailcontroller.text,
-                                        17,
-                                        Colors.blueGrey.shade700,
-                                        true),
+                                    write('you the OTP at', 14,
+                                        Colors.blueGrey.shade700, true),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    write(_emailcontroller.text, 14,
+                                        Colors.blueGrey.shade700, true),
                                   ],
                                 ),
                                 SizedBox(

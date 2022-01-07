@@ -9,6 +9,9 @@ import 'package:expense/static.dart' as Static;
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class HomePageSingleColor extends StatefulWidget {
   const HomePageSingleColor({Key? key}) : super(key: key);
 
@@ -42,7 +45,7 @@ class _HomePageSingleColorState extends State<HomePageSingleColor> {
   List<FlSpot> dataSet = [];
   List<BarChartGroupData> barChartData = [];
   DateTime today = DateTime.now();
-
+  int temp = 0;
   List<String> months = [
     "Jan",
     "Feb",
@@ -224,16 +227,18 @@ class _HomePageSingleColorState extends State<HomePageSingleColor> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Icon(Icons.android_sharp, color: look, size: 34),
+                        SizedBox(width: 12),
+                        FaIcon(FontAwesomeIcons.ethereum,
+                            color: look, size: 37),
                         SizedBox(
                           width: 7,
                         ),
                         Text(
-                          'CRYPTO TRACKER',
+                          'CRYPTOTRACKER',
                           style: TextStyle(
-                            fontFamily: 'ale',
+                            fontFamily: 'ale1',
                             fontWeight: FontWeight.bold,
-                            fontSize: 26,
+                            fontSize: 29,
                             color: look,
                           ),
                         ),
@@ -254,8 +259,8 @@ class _HomePageSingleColorState extends State<HomePageSingleColor> {
                             });
                           },
                           icon: Icon(
-                            Icons.lightbulb_outline_rounded,
-                            size: 34,
+                            Icons.lightbulb_outline_sharp,
+                            size: 38,
                             color: look,
                           ),
                         ),
@@ -270,7 +275,13 @@ class _HomePageSingleColorState extends State<HomePageSingleColor> {
                     padding: const EdgeInsets.fromLTRB(20, 4, 0, 5),
                     child: Row(
                       children: [
-                        write('Hello Saptarshi    ', 22, look, true),
+                        SizedBox(width: 18),
+                        write('Hello User   ', 28, look, true),
+                        FaIcon(
+                          FontAwesomeIcons.handHoldingUsd,
+                          color: Colors.orange.shade800,
+                          size: 34,
+                        )
                       ],
                     ),
                   ),
@@ -565,7 +576,7 @@ class _HomePageSingleColorState extends State<HomePageSingleColor> {
                   //         ),
                   //       ),
                   // //
-                  
+
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Row(
@@ -631,18 +642,83 @@ class _HomePageSingleColorState extends State<HomePageSingleColor> {
                               return Container();
                             }
                             if (dataAtIndex['type'] == "Income") {
-                              return incomeTile(
-                                dataAtIndex['amount'],
-                                dataAtIndex['note'],
-                                dataAtIndex['date'],
-                                index,
+                              return Slidable(
+                                startActionPane: ActionPane(
+                                    motion: DrawerMotion(),
+                                    children: [
+                                      SlidableAction(
+                                        onPressed: dono,
+                                        backgroundColor:
+                                            Colors.deepOrange.shade800,
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.delete,
+                                        label: 'Delete',
+                                      ),
+                                      SlidableAction(
+                                        onPressed: dono,
+                                        backgroundColor: Colors.teal.shade700,
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.share_sharp,
+                                        label: 'Share',
+                                      ),
+                                    ]),
+                                endActionPane: ActionPane(
+                                    motion: DrawerMotion(),
+                                    children: [
+                                      SlidableAction(
+                                        onPressed: dono,
+                                        backgroundColor: Colors.purple.shade800,
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.archive,
+                                        label: 'Archive',
+                                      ),
+                                    ]),
+                                child: incomeTile(
+                                  dataAtIndex['amount'],
+                                  dataAtIndex['note'],
+                                  dataAtIndex['date'],
+                                  index,
+                                ),
                               );
                             } else {
-                              return expenseTile(
-                                dataAtIndex['amount'],
-                                dataAtIndex['note'],
-                                dataAtIndex['date'],
-                                index,
+                              return Slidable(
+                                startActionPane: ActionPane(
+                                  motion: DrawerMotion(),
+                                  children: [
+                                    SlidableAction(
+                                      onPressed: dono,
+                                      backgroundColor:
+                                          Colors.deepOrange.shade800,
+                                      foregroundColor: Colors.white,
+                                      icon: Icons.delete,
+                                      label: 'Delete',
+                                    ),
+                                    SlidableAction(
+                                      onPressed: dono,
+                                      backgroundColor: Colors.teal.shade700,
+                                      foregroundColor: Colors.white,
+                                      icon: Icons.share_sharp,
+                                      label: 'Share',
+                                    ),
+                                  ],
+                                ),
+                                endActionPane: ActionPane(
+                                    motion: DrawerMotion(),
+                                    children: [
+                                      SlidableAction(
+                                        onPressed: dono,
+                                        backgroundColor: Colors.purple.shade800,
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.archive,
+                                        label: 'Archive',
+                                      ),
+                                    ]),
+                                child: expenseTile(
+                                  dataAtIndex['amount'],
+                                  dataAtIndex['note'],
+                                  dataAtIndex['date'],
+                                  index,
+                                ),
                               );
                             }
                           },
@@ -663,6 +739,8 @@ class _HomePageSingleColorState extends State<HomePageSingleColor> {
       ),
     );
   }
+
+  void dono(BuildContext context) {}
 
   Widget walletdisp() {
     return Center(
@@ -905,6 +983,18 @@ class _HomePageSingleColorState extends State<HomePageSingleColor> {
         ),
       ),
     );
+  }
+
+  void del(BuildContext context, int index) async {
+    bool? answer = await showConfirmDialog(
+      context,
+      "WARNING",
+      "This will delete this record. This action is irreversible. Do you want to continue ?",
+    );
+    if (answer != null && answer) {
+      await dbHelper.deleteData(index);
+      setState(() {});
+    }
   }
 
   Widget incomeTile(int value, String note, DateTime date, int index) {

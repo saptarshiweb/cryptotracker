@@ -43,7 +43,7 @@ class _MarketscreenState extends State<Marketscreen> {
   bool isload = true;
 
   String url1 =
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=7d";
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=7d";
 
   Future fetchCryptoData() async {
     isload = true;
@@ -61,7 +61,6 @@ class _MarketscreenState extends State<Marketscreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     fetchCryptoData();
     super.initState();
   }
@@ -101,7 +100,8 @@ class _MarketscreenState extends State<Marketscreen> {
                         SizedBox(
                           width: 5,
                         ),
-                        write('Market  ', 24, look, true),
+                        write('Market  ', 24,
+                            look, true),
                         Icon(
                           Icons.price_check,
                           size: 34,

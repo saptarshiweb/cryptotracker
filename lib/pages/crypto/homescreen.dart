@@ -75,7 +75,7 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     fetchCryptoData();
     getName();
     super.initState();
@@ -98,10 +98,10 @@ class _HomescreenState extends State<Homescreen> {
               ),
               GlowText(
                 'CRYPTOTRACKER',
-                glowColor: Colors.orange.shade700,
+                glowColor: Colors.purple.shade900,
                 style: TextStyle(
                   fontFamily: 'ale1',
-                  fontSize: 42,
+                  fontSize: 39,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -115,10 +115,10 @@ class _HomescreenState extends State<Homescreen> {
                   // ('Hello ' + user + '  ', 30, look, true),
                   GlowText(
                     'Hello $user ',
-                    glowColor: Colors.lightGreenAccent.shade700,
+                    glowColor: Colors.black,
                     style: TextStyle(
                       fontFamily: 'ale1',
-                      fontSize: 34,
+                      fontSize: 32,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
@@ -286,9 +286,9 @@ class _HomescreenState extends State<Homescreen> {
                       MaterialPageRoute(builder: (context) => Assettile()));
                 },
                 icon: FaIcon(
-                  FontAwesomeIcons.angleDoubleRight,
+                  FontAwesomeIcons.arrowAltCircleRight,
                   color: Colors.white,
-                  size: 34,
+                  size: 30,
                 )),
           ],
         ),
@@ -489,7 +489,7 @@ class _HomescreenState extends State<Homescreen> {
                                           builder: (BuildContext context) {
                                             return Container(
                                               color: Colors.black,
-                                              height: 180,
+                                              height: 170,
                                               child: Padding(
                                                 padding:
                                                     const EdgeInsets.fromLTRB(
@@ -550,24 +550,182 @@ class _HomescreenState extends State<Homescreen> {
                                                                   ElevatedButton(
                                                                       onPressed:
                                                                           () async {
-                                                                        final isAuthenticated =
-                                                                            await LocalAuthApi.authenticate();
+                                                                        // final isAuthenticated =
+                                                                        //     await LocalAuthApi.authenticate();
 
-                                                                        if (isAuthenticated) {
-                                                                          Navigator.push(
+                                                                        // if (isAuthenticated) {
+                                                                        //   Navigator.push(
+                                                                        //       context,
+                                                                        //       MaterialPageRoute(
+                                                                        //           builder: (context) => SpecificCoin(
+                                                                        //                 image: '${cryptodata[index]['image']}',
+                                                                        //                 name: '${cryptodata[index]['name']}',
+                                                                        //                 symbol: ' ${cryptodata[index]['symbol']}',
+                                                                        //                 cur: cryptodata[index]['current_price'].toDouble(),
+                                                                        //                 rate: cryptodata[index]['price_change_percentage_24h'].toDouble(),
+                                                                        //                 price: cryptodata[index]['sparkline_in_7d']['price'],
+                                                                        //                 id: '${cryptodata[index]['id']}',
+                                                                        //                 price_change: cryptodata[index]['price_change_percentage_7d_in_currency'].toDouble(),
+                                                                        //               )
+
+                                                                        //               )
+
+                                                                        //               );
+                                                                        // }
+
+                                                                        await showDialog(
+                                                                          context:
                                                                               context,
-                                                                              MaterialPageRoute(
-                                                                                  builder: (context) => SpecificCoin(
-                                                                                        image: '${cryptodata[index]['image']}',
-                                                                                        name: '${cryptodata[index]['name']}',
-                                                                                        symbol: ' ${cryptodata[index]['symbol']}',
-                                                                                        cur: cryptodata[index]['current_price'].toDouble(),
-                                                                                        rate: cryptodata[index]['price_change_percentage_24h'].toDouble(),
-                                                                                        price: cryptodata[index]['sparkline_in_7d']['price'],
-                                                                                        id: '${cryptodata[index]['id']}',
-                                                                                        price_change: cryptodata[index]['price_change_percentage_7d_in_currency'].toDouble(),
-                                                                                      )));
-                                                                        }
+                                                                          builder: (context) =>
+                                                                              AlertDialog(
+                                                                            backgroundColor:
+                                                                                Colors.grey.shade900,
+                                                                            content:
+                                                                                Container(
+                                                                              height: 300,
+                                                                              decoration: BoxDecoration(
+                                                                                borderRadius: BorderRadius.circular(12),
+                                                                                color: Colors.grey.shade900,
+                                                                              ),
+                                                                              child: Column(
+                                                                                children: [
+                                                                                  write('Authentication Required', 20, Colors.white, true),
+                                                                                  SizedBox(
+                                                                                    height: 12,
+                                                                                  ),
+                                                                                  write('Verify Identity', 17, Colors.white, true),
+                                                                                  SizedBox(
+                                                                                    height: 14,
+                                                                                  ),
+                                                                                  Row(
+                                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                                    children: [
+                                                                                      FaIcon(
+                                                                                        FontAwesomeIcons.laptopCode,
+                                                                                        size: 22,
+                                                                                        color: Colors.white,
+                                                                                      ),
+                                                                                      write('  Scan Fingerprint', 18, Colors.white, true),
+                                                                                    ],
+                                                                                  ),
+                                                                                  SizedBox(
+                                                                                    height: 20,
+                                                                                  ),
+                                                                                  IconButton(
+                                                                                    onPressed: () {
+                                                                                      setState(() {});
+                                                                                    },
+                                                                                    icon: FaIcon(
+                                                                                      FontAwesomeIcons.fingerprint,
+                                                                                      color: Colors.greenAccent.shade400,
+                                                                                      size: 42,
+                                                                                    ),
+                                                                                  ),
+                                                                                  SizedBox(
+                                                                                    height: 21,
+                                                                                  ),
+                                                                                  Row(
+                                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                                    children: [
+                                                                                      ElevatedButton(
+                                                                                        style: ElevatedButton.styleFrom(
+                                                                                          primary: Colors.greenAccent.shade700,
+                                                                                        ),
+                                                                                        onPressed: () {},
+                                                                                        child: Padding(
+                                                                                          padding: const EdgeInsets.all(8.0),
+                                                                                          child: Row(
+                                                                                            mainAxisAlignment: MainAxisAlignment.center,
+                                                                                            children: [
+                                                                                              write('Success ', 14, Colors.white, true),
+                                                                                              FaIcon(
+                                                                                                FontAwesomeIcons.userCheck,
+                                                                                                size: 12,
+                                                                                                color: Colors.white,
+                                                                                              )
+                                                                                            ],
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                      SizedBox(
+                                                                                        width: 6,
+                                                                                      ),
+                                                                                      ElevatedButton(
+                                                                                        style: ElevatedButton.styleFrom(
+                                                                                          primary: Colors.orange.shade700,
+                                                                                        ),
+                                                                                        onPressed: () {
+                                                                                          Navigator.push(
+                                                                                              context,
+                                                                                              MaterialPageRoute(
+                                                                                                  builder: (context) => SpecificCoin(
+                                                                                                        image: '${cryptodata[index]['image']}',
+                                                                                                        name: '${cryptodata[index]['name']}',
+                                                                                                        symbol: ' ${cryptodata[index]['symbol']}',
+                                                                                                        cur: cryptodata[index]['current_price'].toDouble(),
+                                                                                                        rate: cryptodata[index]['price_change_percentage_24h'].toDouble(),
+                                                                                                        price: cryptodata[index]['sparkline_in_7d']['price'],
+                                                                                                        id: '${cryptodata[index]['id']}',
+                                                                                                        price_change: cryptodata[index]['price_change_percentage_7d_in_currency'].toDouble(),
+                                                                                                      )));
+                                                                                        },
+                                                                                        child: Padding(
+                                                                                          padding: const EdgeInsets.all(8.0),
+                                                                                          child: Row(
+                                                                                            mainAxisAlignment: MainAxisAlignment.center,
+                                                                                            children: [
+                                                                                              write('Go ', 14, Colors.white, true),
+                                                                                              FaIcon(
+                                                                                                FontAwesomeIcons.longArrowAltRight,
+                                                                                                size: 12,
+                                                                                                color: Colors.white,
+                                                                                              )
+                                                                                            ],
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                  TextButton(
+                                                                                    onPressed: () {
+                                                                                      Navigator.pop(context);
+                                                                                    },
+                                                                                    child: Row(
+                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      children: [
+                                                                                        write('Cancel ', 22, Colors.white, true),
+                                                                                        Icon(Icons.cancel, color: Colors.white, size: 22),
+                                                                                      ],
+                                                                                    ),
+                                                                                  )
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                            // actions: [
+                                                                            //   ElevatedButton(
+                                                                            //     onPressed: () {
+                                                                            //       Navigator.of(context).pop(true);
+                                                                            //     },
+                                                                            //     style: ButtonStyle(
+                                                                            //       backgroundColor: MaterialStateProperty.all(
+                                                                            //         Colors.red,
+                                                                            //       ),
+                                                                            //     ),
+                                                                            //     child: Text(
+                                                                            //       "YES",
+                                                                            //     ),
+                                                                            //   ),
+                                                                            //   ElevatedButton(
+                                                                            //     onPressed: () {
+                                                                            //       Navigator.of(context).pop(false);
+                                                                            //     },
+                                                                            //     child: Text(
+                                                                            //       "No",
+                                                                            //     ),
+                                                                            //   ),
+                                                                            // ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                       child:
                                                                           Padding(

@@ -18,10 +18,18 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.blueGrey.shade900,
       appBar: AppBar(
-        title: Text(
-          "Settings",
+        backgroundColor: Colors.deepPurple.shade900,
+        title: Row(
+          children: [
+            write('Settings  ', 24, Colors.white, true),
+            Icon(
+              Icons.settings,
+              color: Colors.white,
+              size: 28,
+            )
+          ],
         ),
       ),
       body: ListView(
@@ -38,7 +46,7 @@ class _SettingsState extends State<Settings> {
                 Navigator.of(context).pop();
               }
             },
-            tileColor: Colors.white,
+            tileColor: Colors.black,
             contentPadding: EdgeInsets.symmetric(
               vertical: 12.0,
               horizontal: 20.0,
@@ -53,15 +61,22 @@ class _SettingsState extends State<Settings> {
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.w800,
+                fontFamily: 'lato',
+                color: Colors.white,
               ),
             ),
             subtitle: Text(
               "This is irreversible",
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'lato',
+                fontSize: 14,
+              ),
             ),
             trailing: Icon(
               Icons.delete_forever,
               size: 32.0,
-              color: Colors.black87,
+              color: Colors.redAccent.shade700,
             ),
           ),
           //
@@ -122,7 +137,7 @@ class _SettingsState extends State<Settings> {
                 await dbHelper.addName(name);
               }
             },
-            tileColor: Colors.white,
+            tileColor: Colors.black,
             contentPadding: EdgeInsets.symmetric(
               vertical: 12.0,
               horizontal: 20.0,
@@ -137,18 +152,76 @@ class _SettingsState extends State<Settings> {
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.w800,
+                fontFamily: 'lato',
+                color: Colors.white,
               ),
             ),
             subtitle: Text(
               "Welcome {newname}",
+              style: TextStyle(
+                fontFamily: 'lato',
+                fontSize: 14,
+                color: Colors.white,
+              ),
             ),
             trailing: Icon(
               Icons.change_circle,
               size: 32.0,
-              color: Colors.black87,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+
+          ListTile(
+            onTap: () async {},
+            tileColor: Colors.black,
+            contentPadding: EdgeInsets.symmetric(
+              vertical: 12.0,
+              horizontal: 20.0,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                8.0,
+              ),
+            ),
+            title: Text(
+              "App Credits ",
+              style: TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.w800,
+                fontFamily: 'lato',
+                color: Colors.white,
+              ),
+            ),
+            subtitle: Text(
+              "Developed by Saptarshi Mandal\nKGEC IT 2nd Year\nDSC KGEC",
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'lato',
+                fontSize: 14,
+              ),
+            ),
+            trailing: Icon(
+              Icons.credit_score_outlined,
+              size: 32.0,
+              color: Colors.yellowAccent.shade700,
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Text write(String s, double size, Color c, bool j) {
+    return Text(
+      s,
+      style: TextStyle(
+        fontSize: size,
+        color: c,
+        fontWeight: j == true ? FontWeight.bold : FontWeight.normal,
+        fontFamily: 'lato',
       ),
     );
   }

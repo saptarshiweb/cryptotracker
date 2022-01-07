@@ -408,6 +408,8 @@ class _TransactState extends State<Transact> {
               height: 50.0,
               child: ElevatedButton(
                 onPressed: () {
+
+                 
                   if (expense == true) {
                     note = note1;
                   }

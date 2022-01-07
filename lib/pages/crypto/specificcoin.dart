@@ -104,7 +104,7 @@ class _SpecificCoinState extends State<SpecificCoin> {
 
   @override
   void initState() {
-    // TODO: implement initState
+  
     fetchCoinData();
     super.initState();
   }
@@ -487,7 +487,7 @@ class _SpecificCoinState extends State<SpecificCoin> {
                     SizedBox(
                       width: 18,
                     ),
-                    write('Buy ' + name, 23, look, true),
+                    write('Buy ' + name + '  ', 23, look, true),
                     Icon(
                       Icons.shopping_cart,
                       color: look,
@@ -528,8 +528,11 @@ class _SpecificCoinState extends State<SpecificCoin> {
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: "0",
-                          hintStyle: TextStyle(color: look),
+                          hintText: "Enter the Quantity",
+                          hintStyle: TextStyle(
+                              color: look == look1
+                                  ? Colors.grey.shade600
+                                  : Colors.grey.shade400),
                           border: InputBorder.none,
                         ),
                         style: TextStyle(
@@ -583,33 +586,35 @@ class _SpecificCoinState extends State<SpecificCoin> {
                 SizedBox(
                   height: 5,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          total = cash * cur.toInt();
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        total = cash * cur.toInt();
 
-                          cal = true;
-                        });
-                      },
+                        cal = true;
+                      });
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          write('Calculate  ', 18, look, true),
+                          write('Calculate  ', 21, look, true),
                           Icon(
                             Icons.calculate_outlined,
                             color: look,
-                            size: 20,
+                            size: 22,
                           ),
                         ],
                       ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.lightGreenAccent.shade700,
-                        onPrimary: Colors.lightGreenAccent.shade400,
-                      ),
-                    )
-                  ],
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.greenAccent.shade700,
+                      onPrimary: Colors.lightGreenAccent.shade400,
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 6,
@@ -648,14 +653,14 @@ class _SpecificCoinState extends State<SpecificCoin> {
                                 children: [
                                   write('Proceed to Payment ', 15, look, true),
                                   Icon(
-                                    Icons.payment_outlined,
+                                    Icons.payment,
                                     color: look,
                                     size: 18,
                                   ),
                                 ],
                               ),
                               style: ElevatedButton.styleFrom(
-                                primary: Colors.lightGreenAccent.shade700,
+                                primary: Colors.teal.shade700,
                                 onPrimary: Colors.lightGreenAccent.shade400,
                               ),
                             ),
@@ -744,7 +749,7 @@ class _SpecificCoinState extends State<SpecificCoin> {
                   SizedBox(
                     width: 2,
                   ),
-                  write(name + ' Wallet', 22, look, true),
+                  write(name + ' Wallet', 19, look, true),
                   Spacer(),
                   Row(
                     children: [
@@ -758,12 +763,12 @@ class _SpecificCoinState extends State<SpecificCoin> {
                   ),
                   IconButton(
                       onPressed: () {},
-                      icon: Icon(
-                        Icons.navigate_next_rounded,
+                      icon: FaIcon(
+                        FontAwesomeIcons.arrowAltCircleRight,
                         color: look == look1
                             ? Colors.grey.shade600
                             : Colors.lightGreenAccent,
-                        size: 36,
+                        size: 30,
                       ))
                 ],
               ),
@@ -791,7 +796,7 @@ class _SpecificCoinState extends State<SpecificCoin> {
                             look == look1 ? Colors.white : Colors.grey.shade200,
                             true),
                         FaIcon(
-                          FontAwesomeIcons.longArrowAltRight,
+                          FontAwesomeIcons.arrowAltCircleRight,
                           color: look == look1
                               ? Colors.white
                               : Colors.grey.shade200,
@@ -878,9 +883,12 @@ class _SpecificCoinState extends State<SpecificCoin> {
                             mock = true;
                           });
                         },
-                        child: write('Mock Trade', 18, look, true),
+                        child: Padding(
+                          padding: const EdgeInsets.all(9.0),
+                          child: write('Mock Trade', 17, look, true),
+                        ),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.lightGreenAccent.shade700,
+                          primary: Colors.teal.shade900,
                           onPrimary: Colors.yellowAccent.shade700,
                         ),
                       ),
@@ -889,9 +897,12 @@ class _SpecificCoinState extends State<SpecificCoin> {
                       ),
                       ElevatedButton(
                         onPressed: () {},
-                        child: write('Actual Trade', 18, look, true),
+                        child: Padding(
+                          padding: const EdgeInsets.all(9.0),
+                          child: write('Actual Trade', 17, look, true),
+                        ),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent.shade400,
+                          primary: Colors.deepOrange.shade800,
                           onPrimary: Colors.redAccent.shade400,
                         ),
                       ),
@@ -1064,7 +1075,7 @@ class _SpecificCoinState extends State<SpecificCoin> {
 
       j++;
 
-      if (j > 40) {
+      if (j > 30) {
         str += '\n';
         j = 0;
         c = 0;
