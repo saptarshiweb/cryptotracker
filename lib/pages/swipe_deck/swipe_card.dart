@@ -1,12 +1,7 @@
 import 'package:expense/pages/crypto/model/deckdata.dart';
 import 'package:flutter/material.dart';
-
 import 'package:swipe_deck/swipe_deck.dart';
-
 import 'package:expense/controllers/db_helper.dart';
-
-import 'package:flutter/rendering.dart';
-
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

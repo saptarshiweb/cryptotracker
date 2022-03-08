@@ -1,21 +1,15 @@
 import 'package:expense/controllers/db_helper.dart';
 import 'package:expense/pages/crypto/model/assetprint.dart';
-import 'package:expense/pages/crypto/model/local_auth_api.dart';
 import 'package:expense/pages/crypto/specificcoin.dart';
 import 'package:expense/pages/swipe_deck/swipe_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_glow/flutter_glow.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'dart:convert';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
 import 'model/chartdata.dart';
-
 import 'dart:async';
 import 'dart:math';
 

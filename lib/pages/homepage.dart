@@ -2,13 +2,10 @@ import 'package:expense/controllers/db_helper.dart';
 import 'package:expense/pages/widgets/confirm_dialog.dart';
 import 'package:expense/pages/widgets/info_snackbar.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:expense/static.dart' as Static;
 import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -454,129 +451,6 @@ class _HomePageSingleColorState extends State<HomePageSingleColor> {
                             ),
                           ),
                         ),
-                  //
-                  //
-                  // Padding(
-                  //   padding: const EdgeInsets.all(
-                  //     12.0,
-                  //   ),
-                  //   child: write("Expenses as Bar Chart", 27, look, true),
-                  // ),
-                  // //
-                  // //
-                  // barChartData.length < 2
-                  //     ? Container(
-                  //         padding: EdgeInsets.all(
-                  //           20.0,
-                  //         ),
-                  //         margin: EdgeInsets.all(
-                  //           12.0,
-                  //         ),
-                  //         height: 400.0,
-                  //         width: 400.0,
-                  //         decoration: BoxDecoration(
-                  //           borderRadius: BorderRadius.circular(
-                  //             8.0,
-                  //           ),
-                  //           color: Colors.white,
-                  //           boxShadow: [
-                  //             BoxShadow(
-                  //               color: Colors.grey.withOpacity(0.8),
-                  //               spreadRadius: 5,
-                  //               blurRadius: 7,
-                  //               offset:
-                  //                   Offset(0, 3), // changes position of shadow
-                  //             ),
-                  //           ],
-                  //         ),
-                  //         child: Text(
-                  //           "Insufficient Data to render chart !",
-                  //         ),
-                  //       )
-                  //     : Container(
-                  //         padding: EdgeInsets.all(
-                  //           25.0,
-                  //         ),
-                  //         margin: EdgeInsets.all(
-                  //           12.0,
-                  //         ),
-                  //         height: 400.0,
-                  //         width: 400.0,
-                  //         decoration: BoxDecoration(
-                  //           borderRadius: BorderRadius.circular(
-                  //             14.0,
-                  //           ),
-                  //           gradient: dark == true
-                  //               ? LinearGradient(
-                  //                   colors: [
-                  //                     Colors.grey.shade900,
-                  //                     Colors.grey.shade900
-                  //                   ],
-                  //                   begin: Alignment.topLeft,
-                  //                   end: Alignment.bottomRight,
-                  //                 )
-                  //               : LinearGradient(
-                  //                   colors: [
-                  //                     Colors.deepOrange.shade100,
-                  //                     Colors.yellow.shade100,
-                  //                   ],
-                  //                   begin: Alignment.topLeft,
-                  //                   end: Alignment.bottomRight,
-                  //                 ),
-                  //           boxShadow: [
-                  //             BoxShadow(
-                  //               color: (dark == false)
-                  //                   ? Colors.grey.withOpacity(0.5)
-                  //                   : Colors.black,
-                  //               spreadRadius: 3,
-                  //               blurRadius: 3,
-                  //               offset:
-                  //                   Offset(1, 2), // changes position of shadow
-                  //             ),
-                  //           ],
-                  //         ),
-                  //         child: BarChart(
-                  //           BarChartData(
-                  //             borderData: FlBorderData(
-                  //               show: false,
-                  //             ),
-                  //             alignment: BarChartAlignment.spaceEvenly,
-                  //             barGroups: getBarChartData(snapshot.data!),
-                  //             titlesData: FlTitlesData(
-                  //                 leftTitles: SideTitles(
-                  //                   showTitles: true,
-                  //                   reservedSize: 50.0,
-                  //                   getTextStyles: (context, i) => TextStyle(
-                  //                     fontSize: 18.0,
-                  //                     fontFamily: 'lato',
-                  //                     fontWeight: FontWeight.bold,
-                  //                     color: dark == true
-                  //                         ? Colors.lightGreenAccent.shade400
-                  //                         : Colors.black,
-                  //                   ),
-                  //                 ),
-                  //                 rightTitles: SideTitles(
-                  //                   showTitles: false,
-                  //                 ),
-                  //                 topTitles: SideTitles(
-                  //                   showTitles: false,
-                  //                 ),
-                  //                 bottomTitles: SideTitles(
-                  //                   showTitles: true,
-                  //                   getTextStyles: (context, i) => TextStyle(
-                  //                     fontSize: 18.0,
-                  //                     fontFamily: 'lato',
-                  //                     fontWeight: FontWeight.bold,
-                  //                     color: dark == true
-                  //                         ? Colors.lightGreenAccent.shade400
-                  //                         : Colors.black,
-                  //                   ),
-                  //                 )),
-                  //           ),
-                  //         ),
-                  //       ),
-                  // //
-
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Row(
